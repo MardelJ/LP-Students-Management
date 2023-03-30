@@ -1,3 +1,6 @@
+#ifndef USUARIO_H
+#define USUARIO_H
+
 #include <string>
 #include <iostream>
 using namespace std;
@@ -10,23 +13,13 @@ public:
     int nuit, diaDeNascimento, mesDeNascimento, anoDeNascimento;
     char sexo, categoria;
     
-    Usuario(string nome, string morada, int dd, int mm, int yyyy, char sexo, char categoria, int nuit){
-        this->Nome = nome;
-        this->morada = morada;
-        this->diaDeNascimento = dd;
-        this->mesDeNascimento = mm;
-        this->anoDeNascimento = yyyy;
-        this->sexo = sexo;
-        this->categoria = categoria;
-        this->nuit = nuit;
-    };
-    ~Usuario();
+    Usuario(string nome, string morada, int dd, int mm, int yyyy, char sexo, char categoria, int nuit);
+    Usuario();
+    ~Usuario() { };
+    void imprimir();
+    void setNome();
+    void setEmail();
+    void setCategoria();
 };
 
-Usuario::Usuario(/* args */)
-{
-}
-
-Usuario::~Usuario()
-{
-}
+#endif
