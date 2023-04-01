@@ -1,5 +1,6 @@
     #include "Usuario.h"
     #include <iostream>
+    #include <sstream>
     #include <fstream>
     #include <string>
 
@@ -114,8 +115,8 @@
             this -> nuit = nuit;
             this -> email = email;
     */
-            cout<<"Registado"<<endl;
-       
+            cout<<"O usuario: "<< Nome << "\n Morada: " << morada << "\n Genero: " << sexo << "\n Data de Nascimento: "<< diaDeNascimento << "/" << mesDeNascimento << "/" << anoDeNascimento <<"\n Nuit: " << nuit <<"\n E-mail: " << email << "\n Categoria: " << categoria << endl;
+            cout << "Foi registado com sucesso!"<<endl;
 
         fstream meuFicheiro;
         meuFicheiro.open("users.txt", ios::app);
@@ -124,10 +125,37 @@
             meuFicheiro.close();
         };
 
+    };
 
 
+    void Usuario::verUsuarios(){
+        fstream lerMeuFicheiro;
+        std::string dataDeNascimento;
+        string cabecalho, linha;
+        istringstream inputStringStream;
+        //LER TOKENS LINHA POR LINHA
 
-
-
-    }
+        lerMeuFicheiro.open("users.txt", ios::in); //Ler Ficheiro em cpp
+        getline(lerMeuFicheiro, cabecalho);
+        cout << cabecalho <<endl;
+        if(lerMeuFicheiro.is_open()){
+            while(!lerMeuFicheiro.eof()){
+                getline(lerMeuFicheiro, linha);
+                if(lerMeuFicheiro.good()){
+                    cout << "leu: " << linha <<endl;
+                    //vamos usar getline e istringstream para tokenizar palavras separadas por ;
+                    inputStringStream.clear();
+                    inputStringStream.str(linha);
+                    getline(inputStringStream, Nome, ";" );
+                    getline(inputStringStream, morada, ";");
+                    getline(inputStringStream, dataDeNascimento, ";");
+                    getline(inputStringStream,sexo,";");
+                    getline(inputStringStream, categoria, ";");
+                    getline(inputStringStream, nuit, ";");
+                    getline(inputStringStream, email, ";"); 
+                    cout<<Nome <<" " << morada << " " << dataDeNascimento << " " << sexo <<" "<< categoria << " " << nuit << " " <<email <<endl;              
+                }
+            }
+        }
+    };
     

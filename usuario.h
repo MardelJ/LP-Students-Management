@@ -25,6 +25,7 @@ public:
     void setEmail();
     void setCategoria();
     void registarUsuario();
+    void verUsuarios();
 };
 
 #endif
