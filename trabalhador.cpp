@@ -99,8 +99,8 @@ void Trabalhador::registarTrabalhador()
         };
         break;
     case 2:
-        curso = "Docente";
-        
+        subcategoria = "Docente";
+
         meuFicheiro.open("TrabalhadorDocente.txt", ios::app);
         if (meuFicheiro.is_open())
         {
