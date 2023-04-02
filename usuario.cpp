@@ -115,7 +115,10 @@
             this -> nuit = nuit;
             this -> email = email;
     */
-            cout<<"O usuario: "<< Nome << "\n Morada: " << morada << "\n Genero: " << sexo << "\n Data de Nascimento: "<< diaDeNascimento << "/" << mesDeNascimento << "/" << anoDeNascimento <<"\n Nuit: " << nuit <<"\n E-mail: " << email << "\n Categoria: " << categoria << endl;
+
+        Usuario usr(std::string nome, std::string morada, int dd, int mm, int yyyy, char sexo, char categoria, int nuit, std::string email);
+        
+        
             cout << "Foi registado com sucesso!"<<endl;
 
         fstream meuFicheiro;
@@ -144,7 +147,7 @@
                 if(lerMeuFicheiro.good()){
                     cout << "leu: " << linha <<endl;
                     //vamos usar getline e istringstream para tokenizar palavras separadas por ;
-                    inputStringStream.clear();
+                    /*inputStringStream.clear();
                     inputStringStream.str(linha);
                     getline(inputStringStream, Nome, ";" );
                     getline(inputStringStream, morada, ";");
@@ -154,8 +157,10 @@
                     getline(inputStringStream, nuit, ";");
                     getline(inputStringStream, email, ";"); 
                     cout<<Nome <<" " << morada << " " << dataDeNascimento << " " << sexo <<" "<< categoria << " " << nuit << " " <<email <<endl;              
+                    */                
                 }
             }
+            lerMeuFicheiro.close();
         }
     };
     

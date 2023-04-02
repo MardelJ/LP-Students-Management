@@ -1,7 +1,7 @@
 #ifndef USUARIO_H
 #define USUARIO_H
 
-#include <string>
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -13,7 +13,7 @@ public:
      std::string Nome; 
      std::string morada;
      std::string email;
-    char password[20];
+    int password;
     int nuit, diaDeNascimento, mesDeNascimento, anoDeNascimento;
     char sexo, categoria;
     
@@ -26,6 +26,7 @@ public:
     void setCategoria();
     void registarUsuario();
     void verUsuarios();
+
 };
 
 #endif
