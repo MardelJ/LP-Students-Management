@@ -4,13 +4,19 @@
 
 #include <iostream>
 #include <string>
+#include "Usuario.h"
 using namespace std;
 
-class Docente : public Usuario{
+class Docente : public Trabalhador{
     private:
 
     public:
-        
+        std::string lecionaDisciplina;
+
+        string getLeccionaDisciplia();
+        void verTurmas();
+        void registarDocente();
+
 }
 
 
