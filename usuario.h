@@ -26,6 +26,9 @@ public:
     void setCategoria();
     void registarUsuario();
     void verUsuarios();
+    void loginEstudante();
+    void loginDocente();
+    void loginTrabalhador();
 
 };
 

@@ -155,4 +155,12 @@
 
         }
     };
+
+void Usuario::loginEstudante(){
+    bool loginSuccess;
+    string emailUsuario, passwordUsuario, email_aux, password_aux;
+
+    
+}
+    
     
