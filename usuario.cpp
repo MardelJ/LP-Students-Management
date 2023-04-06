@@ -100,21 +100,6 @@
             case 2: categoria = 'T'; break;
             default: cout<< "Escolha uma opção válida."<<endl;
         };
-                
-
-
-         
-    
-            /*this->Nome = nome;
-            this ->morada= morada;
-            this -> diaDeNascimento = dd;
-            this -> mesDeNascimento = mm;
-            this -> anoDeNascimento = yyyy;
-            this -> sexo = sexo;
-            this-> categoria = categoria;
-            this -> nuit = nuit;
-            this -> email = email;
-    */
 
         Usuario usr(std::string nome, std::string morada, int dd, int mm, int yyyy, char sexo, char categoria, int nuit, std::string email);
         
@@ -144,7 +129,7 @@
         //LER TOKENS LINHA POR LINHA
 
         lerMeuFicheiro.open("users.txt", ios::in); //Ler Ficheiro em cpp
-        getline(lerMeuFicheiro, cabecalho);
+        getline(lerMeuFicheiro, cabecalho, ';');
         cout << cabecalho <<endl;
         if(lerMeuFicheiro.is_open()){
            while(!lerMeuFicheiro.eof()){
@@ -162,8 +147,8 @@
                     getline(inputStringStream, nuit_aux, ';');
                     getline(inputStringStream, email_aux, ';');
 
-                    cout<< Nome_aux << " " << morada_aux << " " << dataDeNascimento << " " << sexo_aux
-                        << " "<< categoria_aux << " " << nuit_aux << " " << email_aux << endl;
+                    cout<< Nome_aux << "\t " << morada_aux << "\t " << dataDeNascimento << "\t " << sexo_aux
+                        << "\t "<< categoria_aux << "\t " << nuit_aux << "\t " << email_aux << endl;
                 }
             }
             lerMeuFicheiro.close();
