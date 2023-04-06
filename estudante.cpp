@@ -151,6 +151,6 @@ void Estudante::registarEstudante()
     };
 
     cout << "Os seus dados de login são: \n"
-         << "Email: " << email << "Password: " << password;
+         << "Email: " << email << "\nPassword: " << password;
 };
 

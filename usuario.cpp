@@ -159,8 +159,85 @@
 void Usuario::loginEstudante(){
     bool loginSuccess;
     string emailUsuario, passwordUsuario, email_aux, password_aux;
+    fstream loginFicheiro;
+    istringstream inputStringStream;
+    string linha;
+
+    cout << "\t\t\t\t INTRODUZA O SEU EMAIL: "<<endl;
+    cin >> email_aux;
+    cout << "\t\t\t\t INTRODUZA A PALAVRA-PASSE" << endl;
+    cin >> password_aux;
 
     
+    loginFicheiro.open("estudanteLogin.txt", ios::in);
+
+    if(loginFicheiro.is_open()){
+        while(!loginFicheiro.eof()){
+            getline(loginFicheiro, linha);
+            if(loginFicheiro.good()){
+                 inputStringStream.clear();
+                inputStringStream.str(linha);
+                getline(inputStringStream, emailUsuario, ';');
+                getline(inputStringStream, passwordUsuario, ';');
+
+                if(email_aux == emailUsuario && password_aux==passwordUsuario){
+                    loginSuccess = true;
+                    cout << "Loged in as: " << emailUsuario << endl;
+                    break;
+                }
+                else{
+                    cout << "Password ou Email invalido!"<<endl;
+                } 
+                
+
+            }
+        }
+        loginFicheiro.close(); 
+    }
+
+
+}
+
+void Usuario::loginDocente(){
+    bool loginSuccess;
+    string emailUsuario, passwordUsuario, email_aux, password_aux;
+    fstream loginFicheiro;
+    istringstream inputStringStream;
+    string linha;
+
+    cout << "\t\t\t\t INTRODUZA O SEU EMAIL: "<<endl;
+    cin >> email_aux;
+    cout << "\t\t\t\t INTRODUZA A PALAVRA-PASSE" << endl;
+    cin >> password_aux;
+
+    
+    loginFicheiro.open("docenteLogin.txt", ios::in);
+
+    if(loginFicheiro.is_open()){
+        while(!loginFicheiro.eof()){
+            getline(loginFicheiro, linha);
+            if(loginFicheiro.good()){
+                 inputStringStream.clear();
+                inputStringStream.str(linha);
+                getline(inputStringStream, emailUsuario, ';');
+                getline(inputStringStream, passwordUsuario, ';');
+
+                if(email_aux == emailUsuario && password_aux==passwordUsuario){
+                    loginSuccess = true;
+                    cout << "Loged in as: " << emailUsuario << endl;
+                    break;
+                }
+                else{
+                    cout << "Password ou Email invalido!"<<endl;
+                } 
+                
+
+            }
+        }
+        loginFicheiro.close(); 
+    }
+
+
 }
     
     
