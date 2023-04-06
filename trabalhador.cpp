@@ -8,7 +8,7 @@ void Trabalhador::registarTrabalhador()
 {
     int escolha = 0;
     int op = 0;
-    fstream meuFicheiro;
+    fstream meuFicheiro, meuFicheiroUsuario, meuFicheiroLogin;
     cout << "===============================================================" << endl;
     cout << "                        Registar Trabalhador                   " << endl;
     cout << "===============================================================" << endl;
@@ -80,65 +80,33 @@ void Trabalhador::registarTrabalhador()
     std::cin >> email;
 
 
-    while (op < 1 || op > 2)
+    subcategoria = "Secretaria";
+    meuFicheiro.open("TrabalhadoresSec.txt", ios::app);
+    if (meuFicheiro.is_open())
     {
-        cout << "Escolha a sua subcategoria: " << endl;
-        cout << "1. Secretario \n 2. Docente" << endl;
-
-        cin >> op;
+        meuFicheiro << Nome << "; " << morada << "; " << diaDeNascimento << "/" << mesDeNascimento << "/" << anoDeNascimento << ";" << sexo << ";" << email << ";\n";
+        meuFicheiro.close();
     };
-    switch (op)
-    {
-    case 1:
-        subcategoria = "Secretaria";
-        meuFicheiro.open("TrabalhadoresSec.txt", ios::app);
-        if (meuFicheiro.is_open())
-        {
-            meuFicheiro << Nome << "; " << morada << "; " << diaDeNascimento << "/" << mesDeNascimento << "/" << anoDeNascimento << ";" << sexo << ";" << email << ";\n";
-            meuFicheiro.close();
-        };
-        break;
-    case 2:
-        subcategoria = "Docente";
-
-        while (op < 1 || op > 3)
-    {
-        cout << "Escolha a sua subcategoria: " << endl;
-        cout << "1. Secretario \n 2. Docente" << endl;
-
-        cin >> op;
-    };
-
-
-        meuFicheiro.open("TrabalhadorDocente.txt", ios::app);
-        if (meuFicheiro.is_open())
-        {
-            meuFicheiro << Nome << "; " << morada << "; " << diaDeNascimento << "/" << mesDeNascimento << "/" << anoDeNascimento << ";" << sexo << ";" << email << ";\n";
-            meuFicheiro.close();
-        };
-        break;
-    default:
-        cout << "Escolha uma opção válida." << endl;
-    };
+    
 
     random_device rd;
     uniform_int_distribution<int> dist(100000, 999999);
     password = dist(rd);
 
-    meuFicheiro.open("users.txt", ios::app);
+    meuFicheiroUsuario.open("users.txt", ios::app);
     if (meuFicheiro.is_open())
     {
-        meuFicheiro << Nome << "; " << morada << "; " << diaDeNascimento << "/" << mesDeNascimento << "/" << anoDeNascimento << ";" << sexo << ";" << categoria << ";" << nuit << ";" << email << ";\n";
-        meuFicheiro.close();
+        meuFicheiroUsuario << Nome << "; " << morada << "; " << diaDeNascimento << "/" << mesDeNascimento << "/" << anoDeNascimento << ";" << sexo << ";" << categoria << ";" << nuit << ";" << email << ";\n";
+        meuFicheiroUsuario.close();
     };
 
-    meuFicheiro.open("estudanteLogin.txt", ios::app);
-    if (meuFicheiro.is_open())
+    meuFicheiroLogin.open("trabalhadoresLogin.txt", ios::app);
+    if (meuFicheiroLogin.is_open())
     {
-        meuFicheiro << email << ";" << password << endl;
-        meuFicheiro.close();
+        meuFicheiroLogin << email << ";" << password << endl;
+        meuFicheiroLogin.close();
     };
 
     cout << "Os seus dados de login são: \n"
-         << "Email: " << email << "Password: " << password;
+         << "Email: " << email << "\nPassword: " << password;
 };
