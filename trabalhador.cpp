@@ -101,17 +101,16 @@ void Trabalhador::registarTrabalhador()
     case 2:
         subcategoria = "Docente";
 
+        while (op < 1 || op > 3)
+    {
+        cout << "Escolha a sua subcategoria: " << endl;
+        cout << "1. Secretario \n 2. Docente" << endl;
+
+        cin >> op;
+    };
+
+
         meuFicheiro.open("TrabalhadorDocente.txt", ios::app);
-        if (meuFicheiro.is_open())
-        {
-            meuFicheiro << Nome << "; " << morada << "; " << diaDeNascimento << "/" << mesDeNascimento << "/" << anoDeNascimento << ";" << sexo << ";" << email << ";\n";
-            meuFicheiro.close();
-        };
-        break;
-    case 3:
-        curso = "LEEL23";
-        turma = "LEE2023";
-        meuFicheiro.open("LEE2023.txt", ios::app);
         if (meuFicheiro.is_open())
         {
             meuFicheiro << Nome << "; " << morada << "; " << diaDeNascimento << "/" << mesDeNascimento << "/" << anoDeNascimento << ";" << sexo << ";" << email << ";\n";

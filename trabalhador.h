@@ -9,6 +9,7 @@ class Trabalhador : public Usuario{
 
     public:
         std::string subcategoria;
+        
         Trabalhador();
         Trabalhador(std::string nome, std::string morada, int dd, int mm, int yyyy, char sexo, char categoria, int nuit, std::string email, std::string subcategoria);
         void registarTrabalhador();

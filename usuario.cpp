@@ -3,7 +3,7 @@
     #include <sstream>
     #include <fstream>
     #include <string>
-
+    
 
    Usuario user;
     Usuario::Usuario(std::string nome, std::string morada, int dd, int mm, int yyyy, char sexo, char categoria, int nuit, std::string email){};
@@ -136,31 +136,38 @@
         std::string dataDeNascimento;
         string cabecalho, linha;
         istringstream inputStringStream;
+        std::string Nome_aux; 
+        std::string morada_aux;
+        std::string email_aux;
+        string nuit_aux, diaDeNascimento_aux, mesDeNascimento_aux, anoDeNascimento_aux;
+        string sexo_aux, categoria_aux;
         //LER TOKENS LINHA POR LINHA
 
         lerMeuFicheiro.open("users.txt", ios::in); //Ler Ficheiro em cpp
         getline(lerMeuFicheiro, cabecalho);
         cout << cabecalho <<endl;
         if(lerMeuFicheiro.is_open()){
-            while(!lerMeuFicheiro.eof()){
+           while(!lerMeuFicheiro.eof()){
                 getline(lerMeuFicheiro, linha);
                 if(lerMeuFicheiro.good()){
-                    cout << "leu: " << linha <<endl;
+
                     //vamos usar getline e istringstream para tokenizar palavras separadas por ;
-                    /*inputStringStream.clear();
+                    inputStringStream.clear();
                     inputStringStream.str(linha);
-                    getline(inputStringStream, Nome, ";" );
-                    getline(inputStringStream, morada, ";");
-                    getline(inputStringStream, dataDeNascimento, ";");
-                    getline(inputStringStream,sexo,";");
-                    getline(inputStringStream, categoria, ";");
-                    getline(inputStringStream, nuit, ";");
-                    getline(inputStringStream, email, ";"); 
-                    cout<<Nome <<" " << morada << " " << dataDeNascimento << " " << sexo <<" "<< categoria << " " << nuit << " " <<email <<endl;              
-                    */                
+                    getline(inputStringStream, Nome_aux, ';');
+                    getline(inputStringStream, morada_aux, ';');
+                    getline(inputStringStream, dataDeNascimento, ';');
+                    getline(inputStringStream, sexo_aux, ';');
+                    getline(inputStringStream, categoria_aux, ';');
+                    getline(inputStringStream, nuit_aux, ';');
+                    getline(inputStringStream, email_aux, ';');
+
+                    cout<< Nome_aux << " " << morada_aux << " " << dataDeNascimento << " " << sexo_aux
+                        << " "<< categoria_aux << " " << nuit_aux << " " << email_aux << endl;
                 }
             }
             lerMeuFicheiro.close();
+
         }
     };
     
